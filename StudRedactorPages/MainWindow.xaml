@@ -1,0 +1,25 @@
+﻿<Window x:Class="StudRedactorPages.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudRedactorPages"
+        mc:Ignorable="d"
+        FontSize="16"
+        Title="StudRedactor_v2.0" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" Name="menuBlock"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Grid.Column="1" BorderThickness="1" Name="AppFrame" NavigationUIVisibility="Hidden"></Frame>
+        <GroupBox x:Name="Menu" Header="Menu" Margin="6">
+            <StackPanel>
+                <Button Content="Специальность" Name="goToSpecs" Margin="5" Click="goToSpecs_Click"/>
+                <Button Content="Группа" Name="goToGroups" Margin="5" Click="goToGroups_Click"/>
+                <Button Content="Студент" Name="goToStudents" Margin="5" Click="goToStudents_Click"/>
+                <Button Content="Зарегистрировать" Name="goToReg" Margin="5" Click="goToReg_Click"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

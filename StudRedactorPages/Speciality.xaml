@@ -1,0 +1,56 @@
+﻿<Page x:Class="StudRedactorPages.Speciality"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudRedactorPages"
+      mc:Ignorable="d" 
+      FontSize="16"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Speciality">
+
+    <Grid>
+        <GroupBox Header="Управление специальностями" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="5" DataContext="{Binding specializations}">
+                    <Label Content="Код специальности"/>
+                    <TextBox Name="tbSpecCode" Margin="5" Text="{Binding specCode}"/>
+                    <Label Content="Наименование"/>
+                    <TextBox Name="tbSpecName" Margin="5" Text="{Binding specName}"/>
+                    <Label Content="Квалификация"/>
+                    <TextBox Name="tbSpecCval" Margin="5" Text="{Binding specCval}"/>
+                    <Button Content="Создать" Name="bAddSpec" Margin="5" Click="bAddSpec_Click"/>
+                </StackPanel>
+                <Grid Grid.Column="1" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Name="lbSpecList" Grid.Row="0" Margin="0 0 5 5" ItemsSource="{Binding specializations}" SelectionChanged="lbSpecList_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="{Binding Code}" FontWeight="Bold"/>
+                                        <Run Text="{Binding Specname}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="{Binding Cvalification}" FontStyle="Italic" FontSize="14"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Row="1">
+                        <Button Name="bEditSpec" Content="Сохранить" Margin="0 5 5 5" Click="bEditSpec_Click" IsEnabled="False"/>
+                        <Button Name="bDelSpec" Content="Удалить" Margin="0 5 5 5" Click="bDelSpec_Click" IsEnabled="False"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>
