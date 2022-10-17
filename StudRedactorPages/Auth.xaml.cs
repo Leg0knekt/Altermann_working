@@ -54,14 +54,16 @@ namespace StudRedactorPages
                     case "Отдел кадров":
                         MainWindow.regButton.Visibility = Visibility.Visible;
                         break;
-                    default:
-                        MessageBox.Show("Неверно указан логин или пароль");
-                        break;
                 }
                 result.Close();
+            }
+            else
+            {
+                MainWindow.ErrorShow("Неверно указан логин или пароль");
                 tbAuthLog.Text = null;
                 tbAuthPass.Password = null;
             }
+            result.Close();
         }
     }
 }
