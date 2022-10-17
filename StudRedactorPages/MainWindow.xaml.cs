@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Npgsql;
 using NpgsqlTypes;
 using System.Collections.ObjectModel;
+using System.Windows.Threading;
 
 namespace StudRedactorPages
 {
@@ -22,10 +23,15 @@ namespace StudRedactorPages
 
     {
         public static ColumnDefinition grid;
+
         public static Button specsButton;
         public static Button groupsButton;
         public static Button studButton;
         public static Button regButton;
+
+        public static Border errorBorder;
+        public static TextBlock tbWarning;
+        public static DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
@@ -45,6 +51,7 @@ namespace StudRedactorPages
             }
             result.Close();
             grid = menuBlock;
+
             specsButton = goToSpecs;
             groupsButton = goToGroups;
             studButton = goToStudents;
@@ -53,6 +60,25 @@ namespace StudRedactorPages
             goToGroups.Visibility = Visibility.Collapsed;
             goToStudents.Visibility = Visibility.Collapsed;
             goToReg.Visibility = Visibility.Collapsed;
+
+            timer.Interval = new TimeSpan(0, 0, 0, 5);
+            timer.Tick += Timer_Tick;
+            errorBorder = borderError;
+            tbWarning = tbError;
+        }
+
+        public static void ErrorShow(string error)
+        {
+            tbWarning.Text = error;
+            errorBorder.Visibility = Visibility.Visible;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            tbError.Text = "";
+            borderError.Visibility = Visibility.Hidden;
+            timer.Stop();
         }
 
         private void goToSpecs_Click(object sender, RoutedEventArgs e)

@@ -8,18 +8,20 @@ namespace StudRedactorPages
 {
     public class ClStudent
     {
-        public ClStudent(string id, string surname, string name, string patronymic, string group)
+        public ClStudent(string id, string surname, string name, string patronymic, string group, int groupId)
         {
             ID = id;
             Surname = surname;
             Name = name;
             Patronymic = patronymic;
-            Group = group;
+            GroupNumber = group;
+            GroupID = groupId;
         }
         public string ID { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
-        public string Group { get; set; }
+        public string GroupNumber { get; set; }
+        public int GroupID { get; set; }
     }
 }

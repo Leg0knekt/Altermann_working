@@ -24,9 +24,9 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" DataContext="{Binding groups}">
                         <Label Content="Номер группы"/>
-                        <TextBox Name="tbGroupNum" Margin="5" Text="{Binding number}"/>
+                        <TextBox Name="tbGroupNum" Margin="5" Text="{Binding ElementName=lbGroupList, Path=SelectedItem.Num}"/>
                         <Label Content="Номер курса"/>
-                        <TextBox Name="tbGroupCourse" Margin="5" Text="{Binding course}"/>
+                        <TextBox Name="tbGroupCourse" Margin="5" Text="{Binding ElementName=lbGroupList, Path=SelectedItem.Course}"/>
                         <Label Content="Специальность"/>
                     </StackPanel>
                     <ListBox Name="lbGroupSpec" Margin="5" Grid.Row="1" ItemsSource="{Binding Database.specializations}">
@@ -38,7 +38,7 @@
                                         <Run Text="{Binding Specname}" FontSize="14"/>
                                     </TextBlock>
                                     <TextBlock>
-                                        <Run Text="{Binding Cvalification}" FontStyle="Italic" FontSize="12"/>
+                                        <Run Text="{Binding Qualification}" FontStyle="Italic" FontSize="12"/>
                                     </TextBlock>
                                 </StackPanel>
                             </DataTemplate>
@@ -51,7 +51,7 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <ListBox Name="lbGroupList" Grid.Row="0" Margin="0 0 5 5">
+                    <ListBox Name="lbGroupList" Grid.Row="0" Margin="0 0 5 5" SelectionChanged="lbGroupList_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -63,17 +63,24 @@
                                         <Run Text="{Binding Course}"/>
                                         <Run Text="курс"/>
                                     </TextBlock>
-                                    <TextBlock>
+                                    <TextBlock FontSize="14">
                                         <Run Text="{Binding Spec.Code}" FontWeight="Bold"/>
-                                        <Run Text="{Binding Spec.Cvalification}" FontStyle="Italic"/>
+                                        <Run Text="{Binding Spec.Qualification}" FontStyle="Italic"/>
                                     </TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Grid.Row="1">
-                        <Button Content="Сохранить" Margin="0 5 5 5"/>
-                        <Button Content="Удалить" Margin="0 5 5 5"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Name="bGroupEdit" Content="Сохранить" Margin="0 5 5 5" Click="bGroupEdit_Click" IsEnabled="False" Grid.Column="0"/>
+                            <Button Name="bGroupCancel" Content="Отмена" Margin="5 5 5 5" Click="bGroupCancel_Click" IsEnabled="False" Grid.Column="1"/>
+                        </Grid>
+                        <Button Name="bGroupDelete" Content="Удалить" Margin="0 5 5 5" Click="bGroupDelete_Click" IsEnabled="False"/>
                     </StackPanel>
                 </Grid>
             </Grid>

@@ -64,9 +64,10 @@ namespace StudRedactorPages
                     MessageBox.Show("Success!");
                 }
             }
-            catch (Exception k)
+            catch (Exception)
             {
-                MessageBox.Show("Not success :("+k);
+                MainWindow.ErrorShow("Ошибка регистрации, попробуйте заново");
+                //MessageBox.Show("Not success :("+k);
             }
             tbRegSurname.Clear();
             tbRegName.Clear();
