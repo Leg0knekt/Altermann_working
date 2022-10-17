@@ -24,33 +24,16 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0">
                         <Label Content="Номер зачётки"/>
-                        <TextBox Name="tbStudID" Margin="5" Text="{Binding ElementName=lbStudList, Path=SelectedItem.ID}"/>
+                        <TextBox Name="tbStudID" Margin="5"/>
                         <Label Content="Фамилия"/>
-                        <TextBox Name="tbStudSurname" Margin="5" Text="{Binding ElementName=lbStudList, Path=SelectedItem.Surname}"/>
+                        <TextBox Name="tbStudSurname" Margin="5"/>
                         <Label Content="Имя"/>
-                        <TextBox Name="tbStudName" Margin="5" Text="{Binding ElementName=lbStudList, Path=SelectedItem.Name}"/>
+                        <TextBox Name="tbStudName" Margin="5"/>
                         <Label Content="Отчество"/>
-                        <TextBox Name="tbStudPatronymic" Margin="5" Text="{Binding ElementName=lbStudList, Path=SelectedItem.Patronymic}"/>
+                        <TextBox Name="tbStudPatronymic" Margin="5"/>
                         <Label Content="Группа"/>
                     </StackPanel>
-                    <ListBox Name="lbStudGroup"  Margin="5" Grid.Row="1" FontSize="14">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock>
-                                        <Run Text="№" FontWeight="Bold"/>
-                                        <Run Text="{Binding Num}" FontWeight="Bold"/>
-                                        <Run Text="-"/>
-                                        <Run Text="{Binding Spec.Qualification}"/>
-                                    </TextBlock>
-                                    <TextBlock FontStyle="Italic" FontSize="14">
-                                        <Run Text="{Binding Course}" FontSize="12"/>
-                                        <Run Text="курс" FontSize="12"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                    <ComboBox Name="cbStudGroup"  Margin="5" Grid.Row="1"/>
                     <Button Name="bAddStud" Content="Создать" Margin="5" Grid.Row="2" Click="bAddStud_Click"/>
                 </Grid>
                 <Grid Grid.Column="1" Margin="5">
@@ -58,34 +41,10 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <ListBox Name="lbStudList" Grid.Row="0" Margin="0 0 5 5" ItemsSource="{Binding students}" SelectionChanged="lbStudList_SelectionChanged">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock>
-                                        <Run Text="{Binding Surname}"/>
-                                        <Run Text="{Binding Name}"/>
-                                        <Run Text="{Binding Patronymic}"/>
-                                    </TextBlock>
-                                    <TextBlock>
-                                        <Run Text="{Binding ID}" FontWeight="Bold" FontSize="14"/>
-                                        <Run Text="Группа №" FontStyle="Italic" FontSize="14"/>
-                                        <Run Text="{Binding GroupNumber}" FontStyle="Italic" FontSize="14"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                    <ListBox Grid.Row="0" Margin="0 0 5 5"></ListBox>
                     <StackPanel Grid.Row="1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Button Name="bEditStud" Content="Сохранить" Margin="0 5 5 5" Click="bEditStud_Click" IsEnabled="False" Grid.Column="0"/>
-                            <Button Name="bStudCancel" Content="Отмена" Margin="5" Click="bStudCancel_Click" IsEnabled="False" Grid.Column="1"/>
-                        </Grid>
-                        <Button Name="bDeleteStud" Content="Удалить" Margin="0 5 5 5" Click="bDeleteStud_Click" IsEnabled="False"/>
+                        <Button Content="Сохранить" Margin="0 5 5 5"/>
+                        <Button Content="Удалить" Margin="0 5 5 5"/>
                     </StackPanel>
                 </Grid>
             </Grid>

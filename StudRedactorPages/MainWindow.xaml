@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudRedactorPages"
         mc:Ignorable="d"
         FontSize="16"
-        Title="StudRedactor_v2.0" Height="720" Width="1280">
+        Title="StudRedactor_v2.0" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" Name="menuBlock"/>
@@ -21,16 +21,5 @@
                 <Button Content="Зарегистрировать" Name="goToReg" Margin="5" Click="goToReg_Click"/>
             </StackPanel>
         </GroupBox>
-        <Border Grid.Column="1" Name="borderError" Visibility="Hidden"
-                CornerRadius="10" BorderThickness="2"
-                BorderBrush="#610000"  Background="#c70000"
-                Height="auto" MaxWidth="500" Margin="10" Padding="20"
-                VerticalAlignment="Top" HorizontalAlignment="Center">
-                <TextBlock Name="tbError"
-                           Foreground="WhiteSmoke" FontWeight="Bold"
-                           TextAlignment="Center" TextWrapping="Wrap">
-                    Два солдата из стройбата заменяют экскаватор, а один еланский дух заменяет сразу двух
-                </TextBlock>
-            </Border>
-        </Grid>
+    </Grid>
 </Window>

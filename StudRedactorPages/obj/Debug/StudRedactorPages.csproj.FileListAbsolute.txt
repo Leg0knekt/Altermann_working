@@ -53,3 +53,4 @@ C:\Users\student\source\repos\AlterMann\StudRedactorPages\obj\Debug\Auth.g.cs
 C:\Users\student\source\repos\AlterMann\StudRedactorPages\obj\Debug\Auth.baml
 C:\Users\student\source\repos\AlterMann\StudRedactorPages\obj\Debug\Registration.g.cs
 C:\Users\student\source\repos\AlterMann\StudRedactorPages\obj\Debug\Registration.baml
+C:\Users\student\source\repos\AlterMann\StudRedactorPages\obj\Debug\App.baml

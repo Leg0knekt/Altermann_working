@@ -8,14 +8,12 @@ namespace StudRedactorPages
 {
     public class ClGroup
     {
-        public ClGroup(int id ,string number, int course, ClSpeciality spec)
+        public ClGroup(string number, int course, ClSpeciality spec)
         {
-            Id = id;
             Num = number;
             Course = course;
             Spec = spec;
         }
-        public int Id { get; set; }
         public string Num { get; set; }
         public int Course { get; set; }
         public ClSpeciality Spec { get; set; }

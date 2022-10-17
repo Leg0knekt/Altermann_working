@@ -18,11 +18,11 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" Margin="5" DataContext="{Binding specializations}">
                     <Label Content="Код специальности"/>
-                    <TextBox Name="tbSpecCode" Margin="5" Text="{Binding ElementName=lbSpecList, Path=SelectedItem.Code}"/>
+                    <TextBox Name="tbSpecCode" Margin="5" Text="{Binding specCode}"/>
                     <Label Content="Наименование"/>
-                    <TextBox Name="tbSpecName" Margin="5" Text="{Binding ElementName=lbSpecList, Path=SelectedItem.Specname}"/>
+                    <TextBox Name="tbSpecName" Margin="5" Text="{Binding specName}"/>
                     <Label Content="Квалификация"/>
-                    <TextBox Name="tbSpecCval" Margin="5" Text="{Binding ElementName=lbSpecList, Path=SelectedItem.Qualification}"/>
+                    <TextBox Name="tbSpecCval" Margin="5" Text="{Binding specCval}"/>
                     <Button Content="Создать" Name="bAddSpec" Margin="5" Click="bAddSpec_Click"/>
                 </StackPanel>
                 <Grid Grid.Column="1" Margin="5">
@@ -39,21 +39,14 @@
                                         <Run Text="{Binding Specname}"/>
                                     </TextBlock>
                                     <TextBlock>
-                                        <Run Text="{Binding Qualification}" FontStyle="Italic" FontSize="14"/>
+                                        <Run Text="{Binding Cvalification}" FontStyle="Italic" FontSize="14"/>
                                     </TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Grid.Row="1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Button Name="bEditSpec" Content="Сохранить" Margin="0 5 5 5" Click="bEditSpec_Click" IsEnabled="False" Grid.Column="0"/>
-                            <Button Name="bSpecCancel" Content="Отмена" Margin="5" Click="bSpecCancel_Click" IsEnabled="False" Grid.Column="1"/>
-                        </Grid>
+                        <Button Name="bEditSpec" Content="Сохранить" Margin="0 5 5 5" Click="bEditSpec_Click" IsEnabled="False"/>
                         <Button Name="bDelSpec" Content="Удалить" Margin="0 5 5 5" Click="bDelSpec_Click" IsEnabled="False"/>
                     </StackPanel>
                 </Grid>

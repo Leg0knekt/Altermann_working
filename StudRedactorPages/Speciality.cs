@@ -9,16 +9,14 @@ namespace StudRedactorPages
 {
     public class ClSpeciality
     {
-        public ClSpeciality(int id, string code, string specname, string qualification)
+        public ClSpeciality(string code, string specname, string cvalification)
         {
-            Id = id;
             Code = code;
             Specname = specname;
-            Qualification = qualification;
+            Cvalification = cvalification;
         }
-        public int Id { get; set; }
         public string Code { get; set; }
         public string Specname { get; set; }
-        public string Qualification { get; set; }
+        public string Cvalification { get; set; }
     }
 }
